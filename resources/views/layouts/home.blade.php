@@ -10,7 +10,13 @@
 </head>
 <body x-data='{navbar : false, mobile: true}'>  
     <div class="navbar">
+        @if(Auth::user())
+
+        @else
+
         @include('layouts.navigation.navbar')
+
+        @endif
         
     </div>
     <div class="container">
