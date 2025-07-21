@@ -6,13 +6,10 @@
 
     <div class="lg:flex lg:justify-between pt-10">
         <div>
-            <form action="{{route('Register')}}" method="post">
+            <form action="{{route('Login')}}" method="post">
                 @csrf
-                <h5 class="text-xl">Daftar</h5>
-                <div class="mt-5">
-                    <p class="font-semibold">Username </p>
-                    <input type="text" name="name" placeholder="Masukan username anda" id="" class="bg-gray-200 p-2">
-                </div>
+                <h5 class="text-xl">Masuk</h5>
+                
                 <div class="mt-5">
                     <p class="font-semibold">Email </p>
                     <input type="text" name="email" placeholder="Masukan email anda" id="" class="bg-gray-200 p-2">
@@ -22,8 +19,8 @@
                     <input type="text" name="password" placeholder="Masukan password anda" id="" class="bg-gray-200 p-2">
                 </div>
                 <div class="mt-5 flex">
-                    <input type="checkbox" name="agree" id="">
-                    <p class="text-xs pl-2">Saya menyetujui peraturan yang ada</p>
+                  
+                    <p class="text-xs text-blue-500">Forgot your Password?</p>
                 </div>
                 @if ($errors->any())
                 <div>
@@ -35,7 +32,7 @@
                 </div>
                 @endif
                 <div class="mt-5">
-                    <button type="submit" class="bg-gray-200  p-2 text-black">Buat Akun</button>
+                    <button type="submit" class="bg-gray-200  p-2 text-black">Masuk </button>
                 </div>
             </form>
         </div>
@@ -45,7 +42,7 @@
         <div class="lg:mt-0 mt-5">
             
             <div>
-                <p>Daftar dengan akun lain</p>
+                <p>Masuk dengan</p>
             </div>
             <div class="flex pt-5">
                 
