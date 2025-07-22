@@ -18,6 +18,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('isUsingAnotherLogin')->default(0);
+            $table->integer('premium')->default(0);
+            $table->string('profile_url')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

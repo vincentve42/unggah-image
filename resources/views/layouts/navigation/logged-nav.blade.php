@@ -52,14 +52,14 @@
 
 
                     </div>
-                    <li>Masuk</li>
+                    <li>Album</li>
                     </div></a>
                      <a href="/register"><div class="p-3">
                         
 
 
                     
-                    <li class="bg-indigo-500 text-white p-1 pl-2 pr-2">Daftar Sekarang</li>
+                    <li class="bg-indigo-500 text-white p-1 pl-2 pr-2">Akun Saya</li>
                     </div></a>
                     
                     </div>
@@ -136,7 +136,7 @@
                         </svg>
 
                     </div>
-                    <li >Masuk</li>
+                    <li >Album</li>
                 </div></a>
                 <a href="/register"><div class="p-3 flex">
                      <div class="pr-1">
@@ -146,7 +146,7 @@
 
 
                     </div>
-                    <li >Create Account</li>
+                    <li >Akun Saya</li>
                 </div></a>
             </ul>
         </div>

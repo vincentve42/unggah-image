@@ -313,7 +313,9 @@ namespace App\Models {
      * App\Models\Upload
      *
      * @property int $album_id
+     * @property string $url
      * @property int $private
+     * @property string $file_name
      * @property \Illuminate\Support\Carbon $updated_at
      * @property \Illuminate\Support\Carbon $created_at
      * @property int $id
@@ -322,7 +324,9 @@ namespace App\Models {
      * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload whereId($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload whereCreatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload whereUpdatedAt($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload whereFileName($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload wherePrivate($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload whereUrl($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload whereAlbumId($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload newQuery()
@@ -622,6 +626,8 @@ namespace App\Models {
      * @property \Illuminate\Support\Carbon|null $updated_at
      * @property \Illuminate\Support\Carbon|null $created_at
      * @property string|null $remember_token
+     * @property string|null $profile_image
+     * @property int $premium
      * @property int $isUsingAnotherLogin
      * @property string $password
      * @property \Illuminate\Support\Carbon|null $email_verified_at
@@ -638,6 +644,8 @@ namespace App\Models {
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereEmailVerifiedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User wherePassword($value)
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereIsusinganotherlogin($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<User>|User wherePremium($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereProfileImage($value)
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereRememberToken($value)
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereCreatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereUpdatedAt($value)

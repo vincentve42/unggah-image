@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
+            $table->string('file_name');
             $table->integer('private')->default(0);
+            $table->string('url');
             $table->bigInteger('album_id')->references('id')->on('album')->onDelete('cascade');
         });
     }

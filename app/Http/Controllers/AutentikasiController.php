@@ -15,6 +15,7 @@ class AutentikasiController extends Controller
         $new_user = new User;
         $new_user->name = $request->name;
         $new_user->email = $request->email;
+        $new_user->profile_url = "stewie.jpg";
         $new_user->password = bcrypt($request->password);
         $new_user->save();
         return redirect('/login');

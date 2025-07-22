@@ -20,7 +20,7 @@
         
     </div>
     <div>
-        @include('layouts.upload')
+        @include('layouts.profile.profile')
     </div>
     <div class="container">
          @yield('container')
