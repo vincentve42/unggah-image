@@ -33,7 +33,7 @@
                     <li class="p-4">Logo</li>
                 </ul>
             </div>
-           <div class="items-center justify-items-center">
+           <div class="items-center justify-items-center" @click='upload = !upload; navbar = false; title = false'>
                 <ul class="flex">
                     <div class="p-4 flex">
                     <div class="pr-1">

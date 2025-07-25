@@ -1,4 +1,10 @@
+@if(Auth::user())
+<div x-show="upload" class="shadow-2xl  absolute lg:h-96 w-full">
+@else
 <div x-show="upload" class="shadow-2xl  absolute lg:h-64 w-full">
+@endif
+
+
 <form action="{{ route('upload') }}" method="post" enctype="multipart/form-data">
 @csrf
     <div class="justify-self-center lg:mr-30 lg:top-20 flex">
@@ -13,15 +19,45 @@
     <h1 class="lg:text-xl text-center lg:mr-30 lg:pt-5">Drag and Drop from your computer</h1>
 
     @if(Auth::user())
+    
+ 
+    
+  <div class="justify-self-center lg:mr-30 mt-5">
+    <p class="mt-5">Periizinan</p>
+    <div class="mt-2">
+    <select class="p-1 border border-black" name="" id="">
+      <option value="0">Public</option>
+      <option value="1">Private</option>
+      <option value="2">Anyone has a link</option>
+    </select>
+  
+    </div>
+  </div>
+  <div class="justify-self-center lg:mr-30 ">
+<p class="mt-5">Album</p>
+  </div>
+   <div class="justify-self-center lg:mr-30 mt-5">
+    
+    <div class="mt-2">
+    <select class="p-1 border border-black lg:w-64 w-full" name="album" id="">
+       <option value="0">Album publik</option>
+    </select>
+  
+    </div>
+  </div>
+  <div class="justify-self-center lg:pt-5 pt-5 lg:mr-30">
+    <button type="submit" class="bg-blue-500 p-2 pr-4 pl-4 text-white">Upload</button>
+  </div>
 
     @else
 
     <input type="hidden" name="option" value="0">
-
-    @endif
-  <div class="justify-self-center lg:pt-20 lg:mr-30">
+    <div class="justify-self-center lg:pt-20 lg:mr-30">
     <button type="submit" class="bg-blue-500 p-2 pr-4 pl-4 text-white">Upload</button>
   </div>
+
+    @endif
+  
 
 </form>
 </div>

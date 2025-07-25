@@ -38,69 +38,32 @@ class UploadController extends Controller
                 }
                 
             }
-            else // Other Album
-            {
-                $file = $request->file("file");
-                $extension = $file->getClientOriginalExtension();
-                $filename = time() .".". $extension;
-                $upload = new Upload;
-                $upload->user_id = Auth::id();
-                $upload->album_id = 0;
-
-                $file->storeAs('auth', $filename,'public');
-                $upload->file_name = 'auth/'.$filename;
-                $upload->save();
-            }
+            
         }
         else 
         {
+                $file = $request->file("file");
+                $extension = $file->getClientOriginalExtension();
+                $filename = uniqid() .".". $extension;
+                
+                $upload = new Upload;
+                
+                $upload->Album()->associate($request->album);
+                $upload->private = $request->option;
+                $file->storeAs('auth', $filename,'public');
+                $upload->file_name = 'auth/'.$filename;
+                $upload->url = uniqid();
+                try
+                {
+                    $upload->save();
+                    return redirect()->route('ViewPage',['url' => $upload->url]);
+                }
+                catch(Exception $e)
+                {
+                    return $e;
+                }
+
             
-            if($request->option == 0) // DEfault
-            {
-                $file = $request->file("file");
-                $extension = $file->getClientOriginalExtension();
-                $filename = uniqid() .".". $extension;
-                
-                $upload = new Upload;
-                
-                $upload->Album()->associate(Auth::id());
-                $file->storeAs('auth', $filename,'public');
-                $upload->file_name = 'auth/'.$filename;
-                $upload->url = uniqid();
-                try
-                {
-                    $upload->save();
-                    return redirect()->route('ViewPage',['url' => $upload->url]);
-                }
-                catch(Exception $e)
-                {
-                    return $e;
-                }
-
-            }
-            else// DEfault
-            {
-                $file = $request->file("file");
-                $extension = $file->getClientOriginalExtension();
-                $filename = uniqid() .".". $extension;
-                
-                $upload = new Upload;
-                
-                $upload->Album()->associate($request->option);
-                $file->storeAs('auth', $filename,'public');
-                $upload->file_name = 'auth/'.$filename;
-                $upload->url = uniqid();
-                try
-                {
-                    $upload->save();
-                    return redirect()->route('ViewPage',['url' => $upload->url]);
-                }
-                catch(Exception $e)
-                {
-                    return $e;
-                }
-
-            }
             
         }
     }

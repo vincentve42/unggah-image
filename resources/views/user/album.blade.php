@@ -1,5 +1,5 @@
 @extends('layouts.logged-home')
 
 @section('container')
-    @include('layouts.profile.images')
+    @include('layouts.profile.album')
 @endsection

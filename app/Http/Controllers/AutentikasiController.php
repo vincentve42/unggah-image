@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Album;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,6 +19,13 @@ class AutentikasiController extends Controller
         $new_user->profile_url = "stewie.jpg";
         $new_user->password = bcrypt($request->password);
         $new_user->save();
+
+        
+        $default_album = new Album();
+        $default_album->User()->associate($new_user->id);
+        $default_album->nama = $new_user->name." Folder";
+        $default_album->save();
+
         return redirect('/login');
 
 

@@ -25,6 +25,7 @@
     <div class="container">
          @yield('container')
     </div>
+    
     <div>
         
     </div>
