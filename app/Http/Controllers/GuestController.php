@@ -2,13 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
 
 class GuestController extends Controller
 {
     public function HomeUi()
     {
-        return view('index');
+        if(!Auth::user())
+        {
+            return view('index');
+        }
+        else
+        {
+            $data_album = Auth::user()->album;
+            return view('index',compact('data_album'));
+        }
+        
     }
     public function RegisterUI()
     {

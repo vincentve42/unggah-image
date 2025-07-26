@@ -19,6 +19,7 @@ Route::middleware([GuestMiddleware::class])->group( function (){
 Route::middleware([LogMiddleware::class])->group(function (){
     Route::get('/akun-saya', [HomeController::class,'AccountUi'])->name('AccountPage');
     Route::get('/album-saya', [HomeController::class,'AlbumUi'])->name('AlbumPage');
+    Route::get('/image/option/{order}',[HomeController::class,'SetOrder'])->name('SetOrder');
 });
 
 Route::get('/tentang-kami',[AllController::class,'TentangUi'])->name('AboutusPage');

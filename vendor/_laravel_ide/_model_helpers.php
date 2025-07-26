@@ -6,7 +6,7 @@ namespace App\Models {
      * App\Models\Album
      *
      * @property int $user_id
-     * @property int $private
+     * @property string $nama
      * @property \Illuminate\Support\Carbon $updated_at
      * @property \Illuminate\Support\Carbon $created_at
      * @property int $id
@@ -16,7 +16,7 @@ namespace App\Models {
      * @method static \Illuminate\Database\Eloquent\Builder<Album>|Album whereId($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Album>|Album whereCreatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Album>|Album whereUpdatedAt($value)
-     * @method static \Illuminate\Database\Eloquent\Builder<Album>|Album wherePrivate($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Album>|Album whereNama($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Album>|Album whereUserId($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Album>|Album newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Album>|Album newQuery()
@@ -619,7 +619,9 @@ namespace App\Models {
     /**
      * App\Models\Upload
      *
+     * @property int $user_id
      * @property int $album_id
+     * @property int $view
      * @property string $url
      * @property int $private
      * @property string $file_name
@@ -634,7 +636,9 @@ namespace App\Models {
      * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload whereFileName($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload wherePrivate($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload whereUrl($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload whereView($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload whereAlbumId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload whereUserId($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload newQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload query()
@@ -943,6 +947,8 @@ namespace App\Models {
      * @property int $id
      * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Album> $Album
      * @property-read int|null $Album_count
+     * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Upload> $Upload
+     * @property-read int|null $Upload_count
      * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Follow> $Following
      * @property-read int|null $Following_count
      * @property-read \Illuminate\Database\Eloquent\Collection<int, \Illuminate\Notifications\DatabaseNotification> $notifications

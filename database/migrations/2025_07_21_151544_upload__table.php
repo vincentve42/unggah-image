@@ -18,7 +18,11 @@ return new class extends Migration
             $table->string('file_name');
             $table->integer('private')->default(0);
             $table->string('url');
+            $table->bigInteger('view');
+            $table->string('name');
             $table->bigInteger('album_id')->references('id')->on('album')->onDelete('cascade');
+             $table->bigInteger('user_id')->references('id')->on('users')->onDelete('cascade');
+            
         });
     }
 

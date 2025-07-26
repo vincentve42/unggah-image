@@ -22,13 +22,14 @@
     
  
     
-  <div class="justify-self-center lg:mr-30 mt-5">
-    <p class="mt-5">Periizinan</p>
+  <div class="justify-self-center lg:mr-30 ">
+<p class="mt-5">Izin</p>
+  </div>
+   <div class="justify-self-center lg:mr-30 mt-5">
+    
     <div class="mt-2">
-    <select class="p-1 border border-black" name="" id="">
-      <option value="0">Public</option>
-      <option value="1">Private</option>
-      <option value="2">Anyone has a link</option>
+    <select class="p-1 border border-black lg:w-64 w-full" name="izin" id="">
+       <option value="0">Album publik</option>
     </select>
   
     </div>
@@ -40,7 +41,9 @@
     
     <div class="mt-2">
     <select class="p-1 border border-black lg:w-64 w-full" name="album" id="">
-       <option value="0">Album publik</option>
+       @foreach ($data_album as $single_data)
+         <option value={{ $single_data->id }}>{{$single_data->nama}}</option>
+       @endforeach
     </select>
   
     </div>

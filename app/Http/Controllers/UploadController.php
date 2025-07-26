@@ -27,9 +27,11 @@ class UploadController extends Controller
                 $file->storeAs('guest', $filename,'public');
                 $upload->file_name = 'guest/'.$filename;
                 $upload->url = uniqid();
+            
                 try
                 {
                     $upload->save();
+
                     return redirect()->route('ViewPage',['url' => $upload->url]);
                 }
                 catch(Exception $e)
@@ -49,7 +51,8 @@ class UploadController extends Controller
                 $upload = new Upload;
                 
                 $upload->Album()->associate($request->album);
-                $upload->private = $request->option;
+                $upload->User()->associate(Auth::id());
+                $upload->private = $request->izin;
                 $file->storeAs('auth', $filename,'public');
                 $upload->file_name = 'auth/'.$filename;
                 $upload->url = uniqid();

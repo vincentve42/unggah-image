@@ -15,6 +15,10 @@ class LogMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if(!Auth::user())
+        {
+            return redirect('/login');
+        }
         return $next($request);
     }
 }

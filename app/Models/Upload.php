@@ -9,7 +9,7 @@ class Upload extends Model
 {
     protected $table = 'upload';
 
-    protected $fillable = ['nama, album'];
+    protected $fillable = ['file_name, album_id, user_id'];
 
     public function Album() : BelongsTo
     {
