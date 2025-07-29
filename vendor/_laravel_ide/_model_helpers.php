@@ -621,6 +621,7 @@ namespace App\Models {
      *
      * @property int $user_id
      * @property int $album_id
+     * @property string $name
      * @property int $view
      * @property string $url
      * @property int $private
@@ -637,6 +638,7 @@ namespace App\Models {
      * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload wherePrivate($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload whereUrl($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload whereView($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload whereName($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload whereAlbumId($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload whereUserId($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Upload>|Upload newModelQuery()

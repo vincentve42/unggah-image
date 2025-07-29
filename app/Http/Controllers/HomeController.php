@@ -50,6 +50,28 @@ class HomeController extends Controller
                 $follower_count = Follow::where('followed_id', Auth::id())->count();
                 return view('user/index',compact('user_data','following_count','follower_count','data_image'));
             }
+            if($order == 3)
+            {
+                $user_data = Auth::user();
+                $following_count = Auth::user()->Following->count();
+                $data_image = Auth::user()->Upload()->orderBy('view','desc')->get();
+
+            
+                
+                $follower_count = Follow::where('followed_id', Auth::id())->count();
+                return view('user/index',compact('user_data','following_count','follower_count','data_image'));
+            }
+            if($order == 4)
+            {
+                $user_data = Auth::user();
+                $following_count = Auth::user()->Following->count();
+                $data_image = Auth::user()->Upload()->orderBy('name')->get();
+
+            
+                
+                $follower_count = Follow::where('followed_id', Auth::id())->count();
+                return view('user/index',compact('user_data','following_count','follower_count','data_image'));
+            }
         }
     }
     public function AlbumUi()

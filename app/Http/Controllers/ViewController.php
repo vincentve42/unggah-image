@@ -12,6 +12,11 @@ class ViewController extends Controller
     {
         $image_data = Upload::where("url", $url)->first();
         $data_album = Auth::user()->album;
+        if($image_data->user_id > 0 )
+        {
+            $image_data->view += 1;
+            $image_data->save();
+        }
         return view('view-image',compact('image_data','data_album'));
     }
 }

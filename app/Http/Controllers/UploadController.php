@@ -26,6 +26,8 @@ class UploadController extends Controller
                 $upload->Album()->associate($request->option);
                 $file->storeAs('guest', $filename,'public');
                 $upload->file_name = 'guest/'.$filename;
+                $upload->view = 0;
+                $upload->name = $file->getClientOriginalName();
                 $upload->url = uniqid();
             
                 try
@@ -55,6 +57,10 @@ class UploadController extends Controller
                 $upload->private = $request->izin;
                 $file->storeAs('auth', $filename,'public');
                 $upload->file_name = 'auth/'.$filename;
+                $upload->view = 0;
+                $upload->name = $file->getClientOriginalName();
+                
+
                 $upload->url = uniqid();
                 try
                 {
