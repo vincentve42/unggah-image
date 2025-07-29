@@ -1,8 +1,8 @@
 @if(Auth::user())
-<div x-show="upload" class="shadow-2xl bg-white fixed lg:h-96 w-full">
+<div x-show="upload" x-transition:enter.duration.500ms x-transition:leave.duration.750ms class="shadow-2xl bg-white fixed lg:h-96 w-full">
   <p></p>
 @else
-<div x-show="upload" class="shadow-2xl  fixed lg:h-64 w-full">
+<div x-show="upload" x-transition:enter.duration.500ms x-transition:leave.duration.750ms class="shadow-2xl  fixed lg:h-64 w-full">
   
 @endif
 

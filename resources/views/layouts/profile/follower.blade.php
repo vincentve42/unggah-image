@@ -3,7 +3,7 @@
     
     <div>
         
-        <h1 class="text-xl font-bold p-2">Album</h1>
+        <h1 class="text-xl font-bold p-2">Orang yg difollow</h1>
     </div>
     <ul class='flex'>
         <a href="{{route('SetOrder', ['order' => 1])}}"><li class="p-2 flex hover:border-b-3 border-blue-500">
@@ -22,17 +22,7 @@
 
             Terlama
         </li></a>
-        
-         <a href="{{route('SetOrder', ['order' => 4])}}"><li class="p-2 flex hover:border-b-3 border-blue-500">
-           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802" />
-</svg>
-
-
-
-
-            A-Z
-        </li></a>
+         
         
     </ul>
   
@@ -40,11 +30,11 @@
 
         <div class="ml-5">
         <div class="grid lg:grid-cols-5 grid-cols-2 lg:w-400 lg:mt-5 mt-5">
-            @foreach($data_album as $single_data)
+            @foreach($data_following as $single_data)
             <div class="lg:w-64  w-32 mb-5 shadow-xs">
                 
 
-            <input type="hidden" name="" value="https:://localhost.com/view{{ $single_data->url }}" id="{{'Link'.$single_data->id}}">
+           
 
             
             <div class="flex justify-end items-center justify-items-center">
@@ -54,47 +44,29 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                         </svg>          
                     </div></a>
-                    <a href="{{route('DeleteImage', ['id' => $single_data->id])}}"><div class="pr-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M15 13.5H9m4.06-7.19-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
-</svg>
-      
-                    </div></a>
                     <input type="checkbox" name="justif" id="">
                         
                     
 
                 </div>
             </div>
-            @if($single_data->Upload->count() > 0)
             
-            <a href="view/{{ $single_data->url }}"><img src="{{asset('storage/'.$single_data->Upload()->first()->file_name)}}" alt="" class="lg:w-64 lg:h-64 w-32 h-32"></a>
-            @else
-            <a href="view/{{ $single_data->url }}"><img src="{{asset('storage/')}}" alt="" class="lg:w-64 lg:h-64 w-32 h-32"></a>
-            @endif
+            <a href="view/{{ $single_data->url }}"><img src="{{asset('storage/'.User::find($single_data->user_id)->first()->profile_url)}}" alt="" class="lg:w-64 lg:h-64 w-32 h-32"></a>
             <div class="justify-self-center pt-2">
                 <p>{{$single_data->nama}}</p>
             </div>
             <div class="flex justify-end">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-                </svg>
-                <p class='text-xs lg:pr-3'>{{$single_data->Upload->count()}}</p>
+                <div onclick="Link({{ 'Link'.$single_data->id }})">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z" />
-                </svg>
-
-                
-
+  <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z" />
+</svg>
 
                 </div>
 
             </div>
-             @endforeach
         </div>
-       
+        @endforeach
         </div>
-        
         
     </div>
   

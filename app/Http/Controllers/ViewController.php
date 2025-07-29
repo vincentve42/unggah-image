@@ -19,4 +19,9 @@ class ViewController extends Controller
         }
         return view('view-image',compact('image_data','data_album'));
     }
+    public function ViewAlbum($url)
+    {
+        $album = Album::where('slug', $url)->first();
+        
+    }
 }

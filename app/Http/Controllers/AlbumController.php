@@ -14,6 +14,7 @@ class AlbumController extends Controller
         $new_album = new Album;
         $new_album->nama = $request->nama;
         $new_album->izin = $request->izin;
+        $new_album->slug = '';
         $new_album->User()->associate(Auth::id());
         try
         {
@@ -26,5 +27,5 @@ class AlbumController extends Controller
             return back()->withErrors('Kesalahan terjadi dalam menyimpan album anda mohon kirim ulang dengan format yang telah digunakan');
         }
     }
-    
+
 }

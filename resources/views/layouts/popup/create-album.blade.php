@@ -1,10 +1,10 @@
-<div x-show='create_album'>
+<div x-show='create_album' >
   
  
   <div class="fixed inset-0 bg-black/30 backdrop-blur-sm z-40"></div>
 
   
-  <div class="fixed z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+  <div  x-show='create_album' x-transition:enter.duration.500ms x-transition:leave.duration.750ms class="fixed z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
               shadow-2xl shadow-indigo-500 rounded-4xl w-128 lg:h-92 bg-white p-6">
      
     <form action="{{route('CreateAlbum')}}" method="post">

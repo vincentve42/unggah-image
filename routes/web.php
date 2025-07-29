@@ -22,6 +22,7 @@ Route::middleware([GuestMiddleware::class])->group( function (){
 Route::middleware([LogMiddleware::class])->group(function (){
     Route::get('/akun-saya', [HomeController::class,'AccountUi'])->name('AccountPage');
     Route::get('/album-saya', [HomeController::class,'AlbumUi'])->name('AlbumPage');
+    Route::get('/followed-saya', [HomeController::class,'FollowedUi'])->name('FollowedUi');
     Route::get('/image/option/{order}',[HomeController::class,'SetOrder'])->name('SetOrder');
     Route::get('/image/delete/{id}',[ImageController::class,'Delete'])->name('DeleteImage');
     Route::get('/search',[SearchController::class,'Search'])->name('Search');
