@@ -24,6 +24,7 @@ class AutentikasiController extends Controller
         $default_album = new Album();
         $default_album->User()->associate($new_user->id);
         $default_album->nama = $new_user->name." Folder";
+        $default_album->izin = 0;
         $default_album->save();
 
         return redirect('/login');

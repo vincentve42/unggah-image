@@ -1,5 +1,8 @@
 <div class="pl-2 lg:w-470">
+    
+    
     <div>
+        
         <h1 class="text-xl font-bold p-2">Gambar</h1>
     </div>
     <ul class='flex'>
@@ -46,10 +49,12 @@
   
         
 
-    <div class="ml-5">
-    <div class="grid lg:grid-cols-5 grid-cols-2 lg:w-400 lg:mt-5 mt-5">
-        @foreach($data_image as $single_data)
-        <div class="lg:w-64  w-32 mb-5 shadow-xs">
+        <div class="ml-5">
+        <div class="grid lg:grid-cols-5 grid-cols-2 lg:w-400 lg:mt-5 mt-5">
+            @foreach($data_image as $single_data)
+            <div class="lg:w-64  w-32 mb-5 shadow-xs">
+                
+
             <input type="hidden" name="" value="https:://localhost.com/view{{ $single_data->url }}" id="{{'Link'.$single_data->id}}">
 
             
@@ -75,7 +80,7 @@
                 </div>
             </div>
             
-            <img src="{{asset('storage/'.$single_data->file_name)}}" alt="" class="lg:w-64 lg:h-64 w-32 h-32">
+            <a href="view/{{ $single_data->url }}"><img src="{{asset('storage/'.$single_data->file_name)}}" alt="" class="lg:w-64 lg:h-64 w-32 h-32"></a>
             <div class="justify-self-center pt-2">
                 <p>{{$single_data->name}}</p>
             </div>
@@ -97,6 +102,7 @@
     </div>
     @include('layouts.popup.create-album')
     </div>
+    
     
 </div>
 

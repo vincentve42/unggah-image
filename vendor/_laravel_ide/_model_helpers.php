@@ -6,6 +6,7 @@ namespace App\Models {
      * App\Models\Album
      *
      * @property int $user_id
+     * @property int $izin
      * @property string $nama
      * @property \Illuminate\Support\Carbon $updated_at
      * @property \Illuminate\Support\Carbon $created_at
@@ -17,6 +18,7 @@ namespace App\Models {
      * @method static \Illuminate\Database\Eloquent\Builder<Album>|Album whereCreatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Album>|Album whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Album>|Album whereNama($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Album>|Album whereIzin($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Album>|Album whereUserId($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Album>|Album newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Album>|Album newQuery()

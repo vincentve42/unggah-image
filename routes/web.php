@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\AllController;
 use App\Http\Controllers\AutentikasiController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\ViewController;
 use App\Http\Middleware\GuestMiddleware;
@@ -22,6 +24,8 @@ Route::middleware([LogMiddleware::class])->group(function (){
     Route::get('/album-saya', [HomeController::class,'AlbumUi'])->name('AlbumPage');
     Route::get('/image/option/{order}',[HomeController::class,'SetOrder'])->name('SetOrder');
     Route::get('/image/delete/{id}',[ImageController::class,'Delete'])->name('DeleteImage');
+    Route::get('/search',[SearchController::class,'Search'])->name('Search');
+    Route::post('/create-album', [AlbumController::class,'CreateAlbum'])->name('CreateAlbum');
 });
 
 Route::get('/tentang-kami',[AllController::class,'TentangUi'])->name('AboutusPage');

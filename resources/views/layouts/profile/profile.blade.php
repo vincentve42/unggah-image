@@ -31,14 +31,14 @@
             </div>
             <div class="flex ">
                 <div class="flex justify-between ">
-                <p class="mr-2">{{$following_count}}</p><p class="text-gray-300">Following</p><p class="lg:ml-5 ml-3 text-gray-300"> | </p><p class="ml-2">0</p><p class="text-gray-300 ml-1">Follower</p>
+                <p class="mr-2">{{$following_count}}</p><p class="text-gray-300">Following</p><p class="lg:ml-5 ml-3 text-gray-300"> | </p><p class="ml-2">0</p><p class="text-gray-300 ml-2">Follower</p>
             </div>
             
             
             </div>
             <div class="flex ">
                 <div class="flex justify-between ">
-                <p class="mr-2">{{$following_count}}</p><p class="text-gray-300">Image</p><p class="lg:ml-5 ml-3 text-gray-300"> | </p><p class="ml-2">0</p><p class="text-gray-300 ml-1">Album</p>
+                <p class="mr-2">{{$image_count}}</p><p class="text-gray-300">Image</p><p class="lg:ml-5 ml-3 text-gray-300"> | </p><p class="ml-2">{{ $album_count }}</p><p class="text-gray-300 ml-2">Album</p>
             </div>
             
             
@@ -52,13 +52,18 @@
 
      <div class="mt-5">
         
-        
+        <form action="{{route('Search')}}" method="get">
          <div class=" border border-gray-300  rounded-4xl mr-2 mt-5">
+            @if(session('page') == 1)
 
-        <input type="text" name="" placeholder="Search Here" id="" class="p-1 lg:w-full w-48">
+            
+<input type="hidden" name="pencarian" value="1">
+
+            @endif
+        <input type="text" name="search" placeholder="Search Here" id="" class="p-1 lg:w-full w-48">
 
          </div>
-
+</form>
         <div class="flex bg-gray-100 rounded-4xl p-1 pb-2 pl-4 pr-4 pt-2 ml-15 w-48 mt-5">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-gray-500">
   <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />

@@ -16,6 +16,8 @@ return new class extends Migration
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
             $table->string('nama');
+            $table->integer('izin');
+            $table->string('uniqslug');
             $table->bigInteger('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

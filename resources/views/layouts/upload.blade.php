@@ -1,7 +1,9 @@
 @if(Auth::user())
-<div x-show="upload" class="shadow-2xl  absolute lg:h-96 w-full">
+<div x-show="upload" class="shadow-2xl bg-white fixed lg:h-96 w-full">
+  <p></p>
 @else
-<div x-show="upload" class="shadow-2xl  absolute lg:h-64 w-full">
+<div x-show="upload" class="shadow-2xl  fixed lg:h-64 w-full">
+  
 @endif
 
 
@@ -29,7 +31,9 @@
     
     <div class="mt-2">
     <select class="p-1 border border-black lg:w-64 w-full" name="izin" id="">
-       <option value="0">Album publik</option>
+       <option value="0">Public</option>
+       <option value="1">Private</option>
+       <option value="2">Private ( Only Has Link )</option>
     </select>
   
     </div>

@@ -9,7 +9,7 @@
 
 
 </head>
-<body x-data='{navbar : false, mobile: true, upload: false, title: true, create_album:false}' class=" bg-white">  
+<body x-data='{navbar : false, mobile: true, upload: false, title: true, create_album:false, html_popup:false}' class=" bg-white">  
     <div class="navbar">
         @if(Auth::user())
         @include('layouts.navigation.logged-nav')
@@ -19,6 +19,9 @@
 
         @endif
         
+    </div>
+    <div>
+        @include('layouts.upload')
     </div>
     <div>
         @include('layouts.profile.profile')
