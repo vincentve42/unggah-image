@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\AllController;
 use App\Http\Controllers\AutentikasiController;
+use App\Http\Controllers\BackgroundController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImageController;
@@ -27,6 +28,7 @@ Route::middleware([LogMiddleware::class])->group(function (){
     Route::get('/image/delete/{id}',[ImageController::class,'Delete'])->name('DeleteImage');
     Route::get('/search',[SearchController::class,'Search'])->name('Search');
     Route::post('/create-album', [AlbumController::class,'CreateAlbum'])->name('CreateAlbum');
+    Route::post('/change-bg', [BackgroundController::class,'ChangeBackground'])->name('ChangeBackground');
 });
 
 Route::get('/tentang-kami',[AllController::class,'TentangUi'])->name('AboutusPage');
