@@ -4,6 +4,7 @@ use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\AllController;
 use App\Http\Controllers\AutentikasiController;
 use App\Http\Controllers\BackgroundController;
+use App\Http\Controllers\FollowUserController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImageController;
@@ -21,12 +22,19 @@ Route::middleware([GuestMiddleware::class])->group( function (){
     Route::post('/login',[AutentikasiController::class,'Login'])->name('Login');
 });
 Route::middleware([LogMiddleware::class])->group(function (){
+    // Ui
     Route::get('/akun-saya', [HomeController::class,'AccountUi'])->name('AccountPage');
     Route::get('/album-saya', [HomeController::class,'AlbumUi'])->name('AlbumPage');
     Route::get('/followed-saya', [HomeController::class,'FollowedUi'])->name('FollowedUi');
     Route::get('/image/option/{order}',[HomeController::class,'SetOrder'])->name('SetOrder');
     Route::get('/image/delete/{id}',[ImageController::class,'Delete'])->name('DeleteImage');
     Route::get('/search',[SearchController::class,'Search'])->name('Search');
+    Route::get('/user/action/search',[SearchController::class,'Search'])->name('Search');
+    Route::get('/user/{url}',[ViewController::class,'ViewUser'])->name('ViewUser');
+    Route::get('/user/{url}/album',[ViewController::class,'ViewUserAlbum'])->name('ViewUserAlbum');
+    // Input
+    Route::get('/user/action/follow', [FollowUserController::class,'Follow'])->name('FollowUser');
+    Route::get('/user/action/unfollow', [FollowUserController::class,'UnFollow'])->name('UnFollowUser');
     Route::post('/create-album', [AlbumController::class,'CreateAlbum'])->name('CreateAlbum');
     Route::post('/change-bg', [BackgroundController::class,'ChangeBackground'])->name('ChangeBackground');
 });

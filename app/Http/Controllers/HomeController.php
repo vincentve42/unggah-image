@@ -146,6 +146,7 @@ class HomeController extends Controller
             session()->put('page',3);
             session()->remove('order');
         }
+        
         if(!$order)
         {
             $user_data = Auth::user();
@@ -177,6 +178,7 @@ class HomeController extends Controller
             return view('user/followed',compact('user_data','following_count','follower_count','image_count','album_count','data_album','data_following'));
             
         }
+       
         
     }
      public function FollowerUi()

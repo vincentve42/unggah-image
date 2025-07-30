@@ -1,8 +1,3 @@
-@php
-    
-    use App\Models\User;
-@endphp
-
 <div class="pl-2 lg:w-470">
     
     
@@ -56,9 +51,9 @@
                 </div>
             </div>
             
-            <a href="view/{{ $single_data->url }}"><img src="{{asset(''. User::find($single_data->followed_id)->first()->profile_url)}}" alt="" class="lg:w-64 lg:h-64 w-32 h-32"></a>
+            <a href="view/{{ $single_data->url }}"><img src="{{asset('storage/'.User::find($single_data->user_id)->first()->profile_url)}}" alt="" class="lg:w-64 lg:h-64 w-32 h-32"></a>
             <div class="justify-self-center pt-2">
-                <p>{{User::find($single_data->followed_id)->first()->name}}</p>
+                <p>{{$single_data->nama}}</p>
             </div>
             <div class="flex justify-end">
                 <div onclick="Link({{ 'Link'.$single_data->id }})">

@@ -1,0 +1,16 @@
+List to do
+
+Follow Account 3
+Display banner 1 ( done)
+settings 9
+api 14
+socialite 13
+embed code, share feature, delete 6
+embed code on view mode 7
+view profile 2 ( progress)
+Auth user view image 5
+Like feature 4
+bulk action 8
+premium 11
+panel 12
+midtrans 10

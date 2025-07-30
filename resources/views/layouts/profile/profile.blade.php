@@ -1,6 +1,12 @@
 <div>
-    <div class="bg-gray-100 w-full h-32">
+    @if(is_null($user_data->banner))
+<div class="bg-gray-100 w-full h-32">
+    @else
+<div class="bg-gray-100 w-full h-32" style="background-image : url({{ asset('storage/banner/' . $user_data->banner) }})">
+    @endif
+    
         <div class="top-2">
+        
        <div @click = 'change_background = !change_background' class="flex bg-gray-500 justify-self-center lg:justify-self-end  top-28 lg:top-21 items-center justify-items-center p-1 mr-5 rounded-2xl pr-2">
             <div  class="p-1">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white">
@@ -14,6 +20,12 @@
         </div>
         
         </div>
+
+        
+
+        
+
+    
     </div>
     <div class="flex lg:justify-between">
         <div class="flex">
@@ -56,10 +68,12 @@
         
         <form action="{{route('Search')}}" method="get">
          <div class=" border border-gray-300  rounded-4xl mr-2 mt-5">
+
+            <input type="hidden" name="pencarian" value="{{session()->get('page')}}">
             @if(session('page') == 1)
 
             
-<input type="hidden" name="pencarian" value="1">
+
 
             @endif
         <input type="text" name="search" placeholder="Search Here" id="" class="p-1 lg:w-full w-48">

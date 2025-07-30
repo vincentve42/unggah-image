@@ -23,19 +23,21 @@ class SearchController extends Controller
             return view('user/index',compact('user_data','following_count','follower_count','data_image','data_album','album_count','image_count'));
            
         }
-         if($request->pencarian == 2)
+        if($request->pencarian == 2)
         {
-            $album_tampil = Auth::user()->Upload()->where('nama', 'LIKE',"%$request->search%")->get();
+            $data_album = Auth::user()->Album()->where('nama', 'LIKE',"%$request->search%")->get();
+            
             $user_data = Auth::user();
             $following_count = Auth::user()->Following->count();
             $image_count = Auth::user()->Upload->count();
             $album_count = Auth::user()->Album->count();
-            $data_album = Auth::user()->Album;
-            
+           
             $follower_count = Follow::where('followed_id', Auth::id())->count();
-            return view('user/index',compact('user_data','following_count','follower_count','data_image','data_album','album_count','image_count'));
+            
+            return view('user/album',compact('user_data','following_count','follower_count','data_album','album_count','image_count'));
            
         }
+        
         
     }
 }

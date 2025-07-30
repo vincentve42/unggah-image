@@ -27,7 +27,7 @@
         </div>
         
         <div class="lg:pl-5 lg:pt-10 p-2 ">
-            <button class="bg-gray-100 p-2">Buat Album</button>
+            <button type="submit" class="bg-gray-100 p-2">Buat Album</button>
         </div>
         @if ($errors->any())
                 <div>

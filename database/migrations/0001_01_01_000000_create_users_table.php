@@ -20,6 +20,8 @@ return new class extends Migration
             $table->integer('isUsingAnotherLogin')->default(0);
             $table->integer('premium')->default(0);
             $table->string('profile_url')->nullable();
+            $table->string('view_url');
+            $table->string('banner')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
