@@ -26,12 +26,15 @@ Route::middleware([LogMiddleware::class])->group(function (){
     Route::get('/akun-saya', [HomeController::class,'AccountUi'])->name('AccountPage');
     Route::get('/album-saya', [HomeController::class,'AlbumUi'])->name('AlbumPage');
     Route::get('/followed-saya', [HomeController::class,'FollowedUi'])->name('FollowedUi');
+    Route::get('/follower-saya', [HomeController::class,'FollowerUi'])->name('FollowerUi');
     Route::get('/image/option/{order}',[HomeController::class,'SetOrder'])->name('SetOrder');
     Route::get('/image/delete/{id}',[ImageController::class,'Delete'])->name('DeleteImage');
     Route::get('/search',[SearchController::class,'Search'])->name('Search');
     Route::get('/user/action/search',[SearchController::class,'Search'])->name('Search');
     Route::get('/user/{url}',[ViewController::class,'ViewUser'])->name('ViewUser');
     Route::get('/user/{url}/album',[ViewController::class,'ViewUserAlbum'])->name('ViewUserAlbum');
+    Route::get('/user/{url}/following',[ViewController::class,'ViewUserFollowing'])->name('ViewUserFollowing');
+    Route::get('/user/{url}/follower',[ViewController::class,'ViewUserFollower'])->name('ViewUserFollower');
     // Input
     Route::get('/user/action/follow', [FollowUserController::class,'Follow'])->name('FollowUser');
     Route::get('/user/action/unfollow', [FollowUserController::class,'UnFollow'])->name('UnFollowUser');

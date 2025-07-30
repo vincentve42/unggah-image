@@ -147,7 +147,9 @@ class ViewController extends Controller
     }
     public function ViewUserFollowing($url)
     {
+        
         $user_data = User::where('view_url',$url)->first();
+        
         $following_count = $user_data->Following->count();
         $follower_count = Follow::where('followed_id', $user_data->id)->count();
         $image_count = $user_data->Upload->count();
@@ -155,47 +157,85 @@ class ViewController extends Controller
         $order = session()->get('order');
         if(!$order)
         {
+            $data_following = $user_data->Following()->orderBy('id','desc')->get();    
             $album_user = $user_data->Album;
         }
         $cekpage = session()->get('page');
         if(!$cekpage)
         {
-            session()->put('page',2);
+            session()->put('page',3);
         }
-        else if($cekpage != 2)
+        else if($cekpage != 3)
         {
-            session()->put('page',2);
+            session()->put('page',3);
             session()->remove('order');
         }
         else
         {
             if($order == 1)
             {
-                $album_user = $user_data->Album()->orderBy('id','desc')->where('izin',0)->get();    
+                $data_following = $user_data->Following()->orderBy('id','desc')->get();    
             }
             if($order == 2)
             {
-                $album_user = $user_data->Album()->orderBy('id','asc')->where('izin',0)->get();    
+                $data_following = $user_data->Following()->orderBy('id','asc')->get();    
             }
-            if($order == 3)
-            {
-                
-                $album_user = $user_data->Album()->orderBy('view','desc')->where('izin',0)->get();    
-            }
-            if($order == 4)
-            {
-                $album_user = $user_data->Album()->orderBy('nama')->where('izin',0)->get();  
-                
-            }
+           
             session()->put('order', $order);
             $image_count = $user_data->Upload->count();
             $album_count = $user_data->Album->count();
             
         }
-        session()->put('page',2);
+        session()->put('page',3);
         
         $data_album = Auth::user()->Album;
-        return view('user-page/album',compact('user_data','album_user','following_count','follower_count','image_count','album_count','data_album'));
+        return view('user-page/follow',compact('data_following','user_data','following_count','follower_count','image_count','album_count','data_album'));
+    }
+    public function ViewUserFollower($url)
+    {
+        
+        $user_data = User::where('view_url',$url)->first();
+        
+        $following_count = $user_data->Following->count();
+        $follower_count = Follow::where('followed_id', $user_data->id)->count();
+        $image_count = $user_data->Upload->count();
+        $album_count = $user_data->Album->count();
+        $order = session()->get('order');
+        if(!$order)
+        {
+            $data_following = Follow::where('followed_id', $user_data->id)->get();
+            $album_user = $user_data->Album;
+        }
+        $cekpage = session()->get('page');
+        if(!$cekpage)
+        {
+            session()->put('page',4);
+        }
+        else if($cekpage != 4)
+        {
+            session()->put('page',4);
+            session()->remove('order');
+        }
+        else
+        {
+            if($order == 1)
+            {
+                $data_following =  Follow::where('followed_id', $user_data->id)->orderBy('id','desc')->get();    
+            }
+            if($order == 2)
+            {
+                $data_following =  Follow::where('followed_id', $user_data->id)->orderBy('id','asc')->get();    
+            }
+           
+            session()->put('order', $order);
+            $image_count = $user_data->Upload->count();
+            $album_count = $user_data->Album->count();
+            
+        }
+        session()->put('page',4);
+        
+        $data_album = Auth::user()->Album;
+        return view('user-page/follower',compact('data_following','user_data','following_count','follower_count','image_count','album_count','data_album'));
     }
     
 

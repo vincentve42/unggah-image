@@ -1,9 +1,13 @@
+@php
+    use App\Models\User;
+@endphp
+
 <div class="pl-2 lg:w-470">
     
     
     <div>
         
-        <h1 class="text-xl font-bold p-2">Orang yg difollow</h1>
+        <h1 class="text-xl font-bold p-2">Follower</h1>
     </div>
     <ul class='flex'>
         <a href="{{route('SetOrder', ['order' => 1])}}"><li class="p-2 flex hover:border-b-3 border-blue-500">
@@ -51,9 +55,9 @@
                 </div>
             </div>
             
-            <a href="view/{{ $single_data->url }}"><img src="{{asset('storage/'.User::find($single_data->user_id)->first()->profile_url)}}" alt="" class="lg:w-64 lg:h-64 w-32 h-32"></a>
+            <a href="view/{{ $single_data->url }}"><img src="{{asset(''.User::find($single_data->user_id)->profile_url)}}" alt="" class="lg:w-64 lg:h-64 w-32 h-32"></a>
             <div class="justify-self-center pt-2">
-                <p>{{$single_data->nama}}</p>
+                <p>{{ User::find($single_data->user_id)->name }}</p>
             </div>
             <div class="flex justify-end">
                 <div onclick="Link({{ 'Link'.$single_data->id }})">

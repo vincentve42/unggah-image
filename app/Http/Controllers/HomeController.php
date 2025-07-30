@@ -185,6 +185,13 @@ class HomeController extends Controller
     {
         $cekpage = session()->get('page');
         $order = session()->get('order');
+         $follower_count = Follow::where('followed_id', Auth::id())->count();
+            $following_count = Auth::user()->Following->count();
+            $image_count = Auth::user()->Upload->count();
+            $album_count = Auth::user()->Album->count();
+            $data_album = Auth::user()->Album;
+
+        $user_data = Auth::user();
         if(!$cekpage)
         {
             session()->put('page',4);
@@ -204,8 +211,7 @@ class HomeController extends Controller
             $data_album = Auth::user()->Album;
             $data_following = Follow::where('followed_id',Auth::id())->get();
 
-            return view('user/followed',compact('user_data','following_count','follower_count','image_count','album_count','data_album','data_following'));
-        }
+        }  
         else
         {
             if($order == 1)
@@ -216,8 +222,11 @@ class HomeController extends Controller
             {
                  $data_following = Follow::where('followed_id',Auth::id())->orderBy('id','desc')->get();
             }
-            return view('user/follower',compact('user_data','following_count','follower_count','image_count','album_count','data_album','data_following'));
+           
         }
+        
+        return view('user/follower',compact('user_data','following_count','follower_count','image_count','album_count','data_album','data_following'));
+        
         
     }
 }
