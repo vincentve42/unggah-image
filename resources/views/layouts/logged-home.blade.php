@@ -9,7 +9,7 @@
 
 
 </head>
-<body x-data='{navbar : false, mobile: true, upload: false, title: true, create_album:false, html_popup:false, change_background:false}' class=" bg-white">  
+<body  x-data='{preview : false,navbar : false, mobile: true, upload: false, title: true, create_album:false, html_popup:false, change_background:false}' x-cloak  class=" bg-white">  
     <div class="navbar">
         @if(Auth::user())
         @include('layouts.navigation.logged-nav')
@@ -21,7 +21,7 @@
         
     </div>
     <div>
-        @include('layouts.popup.change-backgroud');
+        @include('layouts.popup.change-backgroud')
     </div>
     <div>
         @include('layouts.upload')
@@ -37,4 +37,9 @@
         
     </div>
 </body>
+<style>
+  [x-cloak] { 
+      display: none !important;
+   }
+</style>
 </html>

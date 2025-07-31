@@ -13,16 +13,20 @@
             
         <h5 class="lg:text-xl lg:pl-4 pt-5">Ubah Background</h5>
         <div class="pr-2 pt-2">
-        <svg @click='change_background = !change_background' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-red-500">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-</svg>
+        <svg @click='change_background = !change_background' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-red-500" >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
 
-</div>
+        </div>
         </div>
         <div class="lg:pt-5 lg:pl-5">
         <p>Image 256x256 ( Recomended )</p>
         <div class="pt-5">
-        <input type="file" name="bg_file" class="p-2 rounded-2xl bg-gray-100" placeholder="Nama Album Kamu" id="">
+        <input @click='preview = !preview' type="file" onchange="loadFile(event)" name="bg_file" class="p-2 rounded-2xl bg-gray-100" placeholder="Nama Album Kamu" id="">
+         <div x-show='preview' class=" mt-5">
+        <img src="" alt="" id="output" class="w-82 h-16">
+
+        </div> 
         </div>
         </div>
         
@@ -43,3 +47,14 @@
 </div>
 </div>
 </div>
+<script>
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) 
+    }
+  };
+
+
+</script>

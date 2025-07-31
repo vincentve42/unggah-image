@@ -9,7 +9,7 @@
 
 
 </head>
-<body x-data='{navbar : false, mobile: true, upload: false, title: true, create_album:false, html_popup:false, change_background:false}' class=" bg-white">  
+<body x-data='{navbar : false,preview : false, mobile: true, upload: false, title: true, create_album:false, html_popup:false, change_background:false}' class=" bg-white">  
     <div class="navbar">
         @if(Auth::user())
         @include('layouts.navigation.logged-nav')

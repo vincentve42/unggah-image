@@ -8,7 +8,7 @@
 
 
 </head>
-<body x-data='{navbar : false, mobile: true, upload: false, title: true}' class="mx-auto m-0 p-0">  
+<body x-data='{preview : false,navbar : false, mobile: true, upload: false, title: true}' class="mx-auto m-0 p-0">  
     <div class="navbar">
         @if(Auth::user())
         @include('layouts.navigation.logged-nav')
