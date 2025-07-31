@@ -1,5 +1,5 @@
 @extends('layouts.logged-home')
 
 @section('container')
-    @include('layouts.profile.follow-search')
+    @include('layouts.profile.images')
 @endsection
